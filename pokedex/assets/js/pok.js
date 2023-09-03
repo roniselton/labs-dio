@@ -11,17 +11,6 @@ function convertPokemonToHtml( pokemon ){
 pokeAPI.getPokemons().then((pokemonList)=>{    
     console.log( pokemonList );
     document.getElementById("OLPokemons").innerHTML = pokemonList.map(convertPokemonToHtml).join('')
-
-
-    // const listaItens = []
-    // for(let i in pokemonList){
-    //     const element = pokemonList[i];
-    //     let li = convertPokemonToHtml(element);
-    //     listaItens.push( li ) 
-    // }
-
-    //
-    // elem.innerHTML +=  li ; 
 })
 .catch((error)=>console.log( error ))
 .finally(()=>console.log('finally looping'))
