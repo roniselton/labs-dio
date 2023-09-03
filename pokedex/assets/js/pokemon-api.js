@@ -1,8 +1,25 @@
-const pokeAPI = {}
+const pokeAPI = {
+}
+
+var offset = 0;
+var limit = 10;
+var maxRegistros = 51;
+
+function convertPokemontToJson(pokJson){
+    console.log(pokJson);
+    const p = new Pokemon();
+    p.number = pokJson.id;
+    p.name = pokJson.name;
+    p.photo = pokJson.sprites.other.dream_world.front_default;
+    p.types = pokJson.types
+    p.type = p.types[0].type.name;
+    return p;
+}
 
 pokeAPI.getPokemonDetail = (item) => {
     return fetch(item.url)
         .then((response)=>response.json())
+        .then(convertPokemontToJson)
 }
 
 pokeAPI.getPokemons = (offset = 0 , limit = 10) => {

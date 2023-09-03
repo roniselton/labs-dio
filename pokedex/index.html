@@ -16,13 +16,17 @@
 <body>
     <section class="content" >
         <h1> Pokedex  </h1>
-        <span> URL: https://pokeapi.co/api/v2/pokemon/1 </span>
+        <div > Total de Registros: <span id="totalRegistros">1200</span>  - <span> URL: https://pokeapi.co/api/v2/pokemon/1 </span>  </div>
         <ol id="OLPokemons" class="pokemons">
                          
         </ol>
-
+        <div class="paginacao">
+            <button id="previous" type="button"> Carregar Mais ... </button>
+            <span id="pagAtual" > Página 1 de 10 </span>
+            <button id="next" type="button"  > Próximo </button>               
+        </div>
     </section>
-    
+    <script src="assets/js/pokemon-model.js" ></script> 
     <script src="assets/js/pokemon-api.js" ></script> 
     <script src="assets/js/pok.js" ></script> 
 </body>
