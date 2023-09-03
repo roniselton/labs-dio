@@ -1,10 +1,15 @@
 //Fetch API Enxios JQUERY
 
 
+function convertTiposPokemonHTML(types){
+    return types.map((t)=> `<li> Slot ${t.slot} - ${t.type.name} </li>`).join('')
+}
+
 function convertPokemonToHtml( pokemon ){
     return `<li> 
-    ${pokemon.name}
-        <img  src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png" >
+    ${pokemon.id} - ${pokemon.name} <br/>
+    <ol> ${convertTiposPokemonHTML(pokemon.types)} </ol>
+        <img  src="${pokemon.sprites.other.dream_world.front_default}" >
     </li>`;
 }
 
