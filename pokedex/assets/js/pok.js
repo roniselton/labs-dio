@@ -11,18 +11,25 @@ function convertPokemonToHtml( pokemon ){
 pokeAPI.getPokemons().then((pokemonList)=>{    
     console.log( pokemonList );
 
-    //const newList = pokemonList.map((value , index , array)=>{
+    const newList = pokemonList.map((value)=>{
+        return convertPokemonToHtml( value )
+    })
 
-    //})
+    console.log( newList );
 
-    const listaItens = []
-    for(let i in pokemonList){
-        const element = pokemonList[i];
-        let li = convertPokemonToHtml(element);
-        listaItens.push( li ) 
-    }
+    let elem = document.getElementById("OLPokemons");
 
-    //let elem = document.getElementById("OLPokemons");
+    const newHtmlOL = newList.join('')
+    elem.innerHTML =  newHtmlOL ;
+    
+    // const listaItens = []
+    // for(let i in pokemonList){
+    //     const element = pokemonList[i];
+    //     let li = convertPokemonToHtml(element);
+    //     listaItens.push( li ) 
+    // }
+
+    //
     // elem.innerHTML +=  li ; 
 })
 .catch((error)=>console.log( error ))
