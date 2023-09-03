@@ -1,8 +1,5 @@
 //Fetch API Enxios JQUERY
-const offset = 10
-const limit = 10
-const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
-//console.log( url );
+
 
 function convertPokemonToHtml( pokemon ){
     return `<li> 
@@ -11,18 +8,24 @@ function convertPokemonToHtml( pokemon ){
     </li>`;
 }
 
-fetch( url )
-.then((response)=>response.json())
-.then((jsonBody)=>jsonBody.results)
-.then((pokemonList)=>{
-    
+pokeAPI.getPokemons().then((pokemonList)=>{    
     console.log( pokemonList );
+
+    //const newList = pokemonList.map((value , index , array)=>{
+
+    //})
+
+    const listaItens = []
     for(let i in pokemonList){
         const element = pokemonList[i];
         let li = convertPokemonToHtml(element);
-        let elem = document.getElementById("OLPokemons");
-        elem.innerHTML +=  li ; 
+        listaItens.push( li ) 
     }
+
+    //let elem = document.getElementById("OLPokemons");
+    // elem.innerHTML +=  li ; 
 })
 .catch((error)=>console.log( error ))
-.finally(()=>console.log('finally'))
+.finally(()=>console.log('finally looping'))
+
+//pokemons.map
