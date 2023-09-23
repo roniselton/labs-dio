@@ -44,12 +44,7 @@ class CardNews extends HTMLElement{
 
     style(){
         const styles = document.createElement("style");
-        styles.textContent = `*{
-            margin: 0;
-            padding: 0;
-            box-sizing: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        styles.textContent = `
         
         .card{
             width: 720px;
